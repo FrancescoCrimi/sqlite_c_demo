@@ -47,7 +47,7 @@ void query_or_die(sqlite3 *db, const char *sql);
 /* ------------------------------------------------------------------ */
 /*  Dichiarazioni – step                                              */
 /* ------------------------------------------------------------------ */
-void mostra_metadati(sqlite3 *db);
+void mostra_metadati();
 
 void step02_ddl(sqlite3 *db);
 void step03_insert_manual(sqlite3 *db);

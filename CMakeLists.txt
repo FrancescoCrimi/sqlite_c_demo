@@ -22,7 +22,7 @@ target_link_libraries(sqlite_c_demo PRIVATE SQLite::SQLite3)
 
 # Opzioni di compilazione aggiuntive per warning e robustezza
 if(MSVC)
-    target_compile_options(sqlite_c_demo PRIVATE /W4 /wx)
+    target_compile_options(sqlite_c_demo PRIVATE /W4 /WX)
 else()
-    target_compile_options(sqlite_c_demo PRIVATE -Wall -Wextra -pedantic)
+    target_compile_options(sqlite_c_demo PRIVATE -Wall -Wextra -pedantic -Werror)
 endif()

@@ -1,6 +1,6 @@
 # SQLite C API Demo (Libsqlite3)
 
-Un'applicazione dimostrativa robusta e modulare in **C (C99)** progettata per illustrare l'utilizzo completo e avanzato delle API ufficiali di **SQLite3 (`libsqlite3`)**. 
+Un'applicazione dimostrativa robusta e modulare in **C** progettata per illustrare l'utilizzo completo e avanzato delle API ufficiali di **SQLite3 (`libsqlite3`)**. 
 
 Questo progetto ricalca la struttura e la completezza funzionale dei driver client per database relazionali, offrendo una panoramica esaustiva di tutte le funzionalità chiave messe a disposizione da SQLite.
 

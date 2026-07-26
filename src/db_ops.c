@@ -35,7 +35,7 @@ void query_or_die(sqlite3 *db, const char *sql) {
 /*  METADATI CONNESSIONE                                              */
 /* ================================================================== */
 
-void mostra_metadati(sqlite3 *db) {
+void mostra_metadati() {
     sep("METADATI CONNESSIONE / SQLITE");
     printf("  SQLite Library Version : %s\n", sqlite3_libversion());
     printf("  SQLite Source ID       : %s\n", sqlite3_sourceid());
