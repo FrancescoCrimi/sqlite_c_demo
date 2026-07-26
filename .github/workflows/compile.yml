@@ -27,6 +27,10 @@ jobs:
     - name: Build Application
       run: cmake --build build --config Release
 
+    # 5. Copia la DLL di SQLite nella cartella di build di Release
+    - name: Copy SQLite DLL to build folder
+      run: xcopy "C:\vcpkg\installed\x64-windows\bin\sqlite3.dll" "build\Release\" /Y
+
     # 5. Salva l'eseguibile (.exe) e la DLL di SQLite come artefatti
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
@@ -34,4 +38,4 @@ jobs:
         name: applicazione-windows-x64
         path: |
           build/Release/sqlite_c_demo.exe
-          C:/vcpkg/installed/x64-windows/bin/sqlite3.dll
+          build/Release/sqlite3.dll
