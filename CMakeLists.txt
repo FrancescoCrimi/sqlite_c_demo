@@ -8,17 +8,18 @@ set(CMAKE_C_EXTENSIONS OFF)
 # Trova la libreria SQLite3 di sistema
 find_package(SQLite3 REQUIRED)
 
-# Inclusione directory header
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
-
 # Definizione eseguibile demo
 add_executable(sqlite_c_demo
     src/main.c
     src/db_ops.c
 )
 
+# Inclusione directory header
+target_include_directories(sqlite_c_demo PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
 # Collegamento della libreria SQLite3
 target_link_libraries(sqlite_c_demo PRIVATE SQLite::SQLite3)
+
 
 # Opzioni di compilazione aggiuntive per warning e robustezza
 if(MSVC)
