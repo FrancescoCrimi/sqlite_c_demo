@@ -18,14 +18,11 @@ jobs:
 
     # 3. Configura CMake integrando vcpkg per trovare SQLite3
     - name: Configure CMake
-      run: >
-        cmake -B build
-        -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake
-        -DVCPKG_TARGET_TRIPLET=x64-windows
+      run: cmake --preset msbuild-msvc
 
     # 4. Compila l'applicazione in modalità Release
     - name: Build Application
-      run: cmake --build build --config Release
+      run: cmake --build --preset msbuild-msvc-release
 
     # 5. Copia la DLL di SQLite nella cartella di build di Release
     - name: Copy SQLite DLL to build folder

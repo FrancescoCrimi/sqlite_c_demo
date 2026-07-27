@@ -1,0 +1,83 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "msbuild-msvc",
+      "displayName": "Gen: MSBuild (Multi-Config)",
+      "description": "Generates Visual Studio 2022 x64 solution with vcpkg. Does not set build type here.",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "toolset": "host=x64",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake"
+      }
+    },
+    {
+      "name": "base-ninja-msvc",
+      "hidden": true,
+      "generator": "Ninja",
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+      "toolset": {
+        "value": "host=x64",
+        "strategy": "external"
+      },
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_COMPILER": "cl",
+        "CMAKE_TOOLCHAIN_FILE": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake"
+      }
+    },
+    {
+      "name": "ninja-msvc-debug",
+      "displayName": "Gen: Ninja MSVC [Debug]",
+      "description": "Generates Ninja files for Debug build with vcpkg. Requires active MSVC environment.",
+      "inherits": "base-ninja-msvc",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "ninja-msvc-release",
+      "displayName": "Gen: Ninja MSVC [Release]",
+      "description": "Generates Ninja files for Release build with vcpkg. Requires active MSVC environment.",
+      "inherits": "base-ninja-msvc",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "msbuild-msvc-debug",
+      "displayName": "Build: MSBuild -> Debug",
+      "description": "Builds the MSBuild project in Debug mode.",
+      "configurePreset": "msbuild-msvc",
+      "configuration": "Debug"
+    },
+    {
+      "name": "msbuild-msvc-release",
+      "displayName": "Build: MSBuild -> Release",
+      "description": "Builds the MSBuild project in Release mode.",
+      "configurePreset": "msbuild-msvc",
+      "configuration": "Release"
+    },
+    {
+      "name": "ninja-msvc-debug",
+      "displayName": "Build: Ninja -> Debug",
+      "description": "Builds the pre-configured Ninja Debug project.",
+      "configurePreset": "ninja-msvc-debug"
+    },
+    {
+      "name": "ninja-msvc-release",
+      "displayName": "Build: Ninja -> Release",
+      "description": "Builds the pre-configured Ninja Release project.",
+      "configurePreset": "ninja-msvc-release"
+    }
+  ]
+}

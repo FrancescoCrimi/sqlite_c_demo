@@ -55,5 +55,3 @@ dkms.conf
 *.dwo
 
 build/
-
-CMakePresets.json
