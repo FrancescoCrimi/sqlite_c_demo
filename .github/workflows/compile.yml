@@ -5,7 +5,8 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    # non uso windows-latest solo per usare vs2022
+    runs-on: windows-2022
 
     steps:
     # 1. Scarica il codice del repository
