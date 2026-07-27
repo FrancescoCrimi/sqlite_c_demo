@@ -1,10 +1,15 @@
 {
-  "version": 3,
+  "version": 10,
   "configurePresets": [
     {
       "name": "msbuild-msvc",
       "displayName": "Gen: MSBuild (Multi-Config)",
       "description": "Generates Visual Studio 2022 x64 solution with vcpkg. Does not set build type here.",
+      "$comment": [
+        "MSBuild uses the same configuration for Debug and Release.",
+        "For the generator, you can use Visual Studio 17 2022 or Visual Studio 17 2026.",
+        "You can delete the generator key and CMake will use the latest one it finds."
+      ],
       "generator": "Visual Studio 17 2022",
       "architecture": "x64",
       "toolset": "host=x64",
